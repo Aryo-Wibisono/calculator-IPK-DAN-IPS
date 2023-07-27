@@ -6,7 +6,9 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: #D5CEA3;
 }
-
+.judul{
+    text-align: center;
+}
 .aturan{
     color:black;
     text-align: center;
