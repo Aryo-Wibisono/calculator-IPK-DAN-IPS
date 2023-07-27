@@ -4,10 +4,22 @@ let tambah_data = document.querySelector(".tambah_data");
 // untuk menambah data
 tambah_data.addEventListener("click", () => {
     let tambah = table.insertRow(-1);
-    let cell1 = tambah.insertCell(0);
-    let cell2 = tambah.insertCell(1);
+    let namaMatkul= tambah.insertCell(0)
+    let cell1 = tambah.insertCell(1);
+    let cell2 = tambah.insertCell(2);
+    namaMatkul.innerHTML=`<input type="text" placeholder="nama mata kuliah">`
     cell1.innerHTML = `<input type="number" placeholder="Masukkan jumlah SKS" style="text-align: center; color: black"; flex-grow: 1;width: 100%;/>`;
-    cell2.innerHTML = `<input type="text" placeholder="Masukkan nilai anda" style="text-align: center; color: black"; flex-grow: 1;width: 100%;/>`;
+    cell2.innerHTML = `<select name="nilai" id="nilai" >
+    <option value="A">A</option>
+    <option value="A-">A-</option>
+    <option value="B+">B+</option>
+    <option value="B">B</option>
+    <option value="B-">B-</option>
+    <option value="C+">C+</option>
+    <option value="C">C</option>
+    <option value="D">D</option>
+    <option value="E">E</option>
+  </select>`;
 });
 // untuk menghapus
 let hapus = document.querySelector(".hapus")
@@ -24,8 +36,8 @@ hitung.addEventListener("click", () => {
   let totalPoint = 0;
 
   for (let i = 1; i < table.rows.length; i++) {
-    let sks = parseFloat(table.rows[i].cells[0].children[0].value);
-    let grade = table.rows[i].cells[1].children[0].value;
+    let sks = parseFloat(table.rows[i].cells[1].children[0].value);
+    let grade = table.rows[i].cells[2].children[0].value;
 
     if (isNaN(sks) || sks <= 0) {
       alert("Jumlah SKS harus berupa angka dan lebih besar dari 0");
